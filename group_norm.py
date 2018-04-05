@@ -22,7 +22,7 @@ def group_norm(input, group, running_mean, running_var, weight=None, bias=None,
     if bias is not None:
         bias = bias.repeat(b)
 
-    def _instance_norm(input, group, running_mean=None, running_var=None, weight=None,
+    def _group_norm(input, group, running_mean=None, running_var=None, weight=None,
                        bias=None, use_input_stats=None, momentum=None, eps=None):
         # Repeat stored stats and affine transform params if necessary
         if running_mean is not None:
@@ -48,7 +48,7 @@ def group_norm(input, group, running_mean, running_var, weight=None, bias=None,
             running_var_orig.copy_(running_var.view(b, int(c/group)).mean(0, keepdim=False))
 
         return out.view(b, c, *input.size()[2:])
-    return _instance_norm(input, group, running_mean=running_mean,
+    return _group_norm(input, group, running_mean=running_mean,
                           running_var=running_var, weight=weight, bias=bias,
                           use_input_stats=use_input_stats, momentum=momentum,
                           eps=eps)
