@@ -8,9 +8,9 @@ ImageNet Validation results.
 
 P.S. NCPG : Number Channels per Group. 
 
-| Model         | NCPG |  Top1  |  Top5  | Link |
+| Model         | NCPG |  Top1 Accuracy |  Top5 Accuracy | Link |
 | ------------- |:----:|:------:|:------:|:----:|
-| ResNet50      | 32   | 75.768 | 92.552 |[resnet50-groupnorm32](http://www.cs.unc.edu/~cyfu/resnet50_groupnorm32.tar)|
+| ResNet50      | 32   | 75.768% | 92.552% |[resnet50-groupnorm32](http://www.cs.unc.edu/~cyfu/resnet50_groupnorm32.tar)|
  
 
 Training Script : 
