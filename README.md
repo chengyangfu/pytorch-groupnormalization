@@ -11,6 +11,8 @@ P.S. NCPG : Number Channels per Group.
 | Model         | NCPG |  Top1 Accuracy |  Top5 Accuracy | Link |
 | ------------- |:----:|:------:|:------:|:----:|
 | ResNet50      | 32   | 75.768% | 92.552% |[resnet50-groupnorm32](http://www.cs.unc.edu/~cyfu/resnet50_groupnorm32.tar)|
+| ResNet50      | 16   | 75.872% | 92.780% |[resnet50-groupnorm16](http://www.cs.unc.edu/~cyfu/resnet50_groupnorm16.tar)|
+
  
 
 Training Script : 
@@ -20,7 +22,7 @@ Training Script :
 Testing Script : 
 ```script 
     wget www.cs.unc.edu/~cyfu/resnet50_groupnorm32.tar
-    python main.py IMAGENET_DIR --evaluate --batch-size=256 --arch=resnet50 --group-norm=32  --resume=./resnet50_groupnorm32.tar   
+    python main.py IMAGENET_DIR --evaluate --batch-size=250 --arch=resnet50 --group-norm=32  --resume=./resnet50_groupnorm32.tar   
 ```
 
 
