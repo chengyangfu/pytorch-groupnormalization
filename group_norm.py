@@ -97,9 +97,9 @@ class GroupNorm2d(_GroupNorm):
 
     Examples:
         >>> # Without Learnable Parameters
-        >>> m = nn.GroupNorm2d(100, 4)
+        >>> m = GroupNorm2d(100, 4)
         >>> # With Learnable Parameters
-        >>> m = nn.GroupNorm2d(100, 4, affine=True)
+        >>> m = GroupNorm2d(100, 4, affine=True)
         >>> input = torch.randn(20, 100, 35, 45)
         >>> output = m(input)
 
@@ -111,4 +111,28 @@ class GroupNorm2d(_GroupNorm):
                              .format(input.dim()))
 
 
+class GroupNorm3d(_GroupNorm):
+    """
+        Assume the data format is (B, C, D, H, W)
+    """
+    def _check_input_dim(self, input):
+        if input.dim() != 5:
+            raise ValueError('expected 5D input (got {}D input)'
+                             .format(input.dim()))
+
+
+def main():
+    # Example of GroupNorm2d
+    m = GroupNorm2d(100, 4, affine=True)
+    input = Variable(torch.randn(20, 100, 35, 45))
+    output = m(input)
+
+    # Example of GroupNorm3d
+    m = GroupNorm3d(100, 4, affine=True)
+    input = Variable(torch.randn(20, 100, 20, 35, 45))
+    output = m(input)
+
+
+if __name__ == '__main__':
+    main()
 
