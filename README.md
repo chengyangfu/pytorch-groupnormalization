@@ -23,6 +23,9 @@ Testing Script :
 ```script 
     wget www.cs.unc.edu/~cyfu/resnet50_groupnorm32.tar
     python main.py IMAGENET_DIR --evaluate --batch-size=250 --arch=resnet50 --group-norm=32  --resume=./resnet50_groupnorm32.tar   
+    
+    wget www.cs.unc.edu/~cyfu/resnet50_groupnorm16.tar
+    python main.py IMAGENET_DIR --evaluate --batch-size=250 --arch=resnet50 --group-norm=16  --resume=./resnet50_groupnorm16.tar   
 ```
 
 
