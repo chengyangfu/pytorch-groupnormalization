@@ -1,3 +1,6 @@
+## Updated 
+  The code is updated accordinign to PyTorch v1.0rc1. 
+
 # pytorch-groupnormalization
 Pytorch implementation of group normalization in https://arxiv.org/abs/1803.08494 (Following the PyTorch Style)
 
