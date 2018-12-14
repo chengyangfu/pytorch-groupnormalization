@@ -1,5 +1,4 @@
 import torch
-from torch.autograd import Variable
 import torch.nn.functional as F
 from torch.nn.modules.batchnorm import _BatchNorm
 
@@ -59,7 +58,7 @@ class _GroupNorm(_BatchNorm):
         self.num_groups = num_groups
         self.track_running_stats = track_running_stats
         super(_GroupNorm, self).__init__(int(num_features/num_groups), eps,
-                                         momentum, affine)
+                                         momentum, affine, track_running_stats)
 
     def _check_input_dim(self, input):
         return NotImplemented
@@ -120,19 +119,4 @@ class GroupNorm3d(_GroupNorm):
             raise ValueError('expected 5D input (got {}D input)'
                              .format(input.dim()))
 
-
-def main():
-    # Example of GroupNorm2d
-    m = GroupNorm2d(100, 4, affine=True)
-    input = Variable(torch.randn(20, 100, 35, 45))
-    output = m(input)
-
-    # Example of GroupNorm3d
-    m = GroupNorm3d(100, 4, affine=True)
-    input = Variable(torch.randn(20, 100, 20, 35, 45))
-    output = m(input)
-
-
-if __name__ == '__main__':
-    main()
 
