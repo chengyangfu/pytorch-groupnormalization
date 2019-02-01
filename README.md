@@ -1,4 +1,6 @@
-## Updated 
+PyTorch now officially supports GroupNormlization. I highly suggest using the groupnorm from PyTorch instead of this one.
+
+## Updated  
   The code is updated accordinign to PyTorch v1.0rc1. 
 
 # pytorch-groupnormalization
